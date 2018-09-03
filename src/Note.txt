@@ -4,3 +4,7 @@ Packages to be installed
 2.Alertify JS
 3.Font awsome
 4.Bootswatch
+
+
+#For the repeated data reading--services
+
