@@ -1,0 +1,6 @@
+Packages to be installed
+
+1.Bootstrap
+2.Alertify JS
+3.Font awsome
+4.Bootswatch

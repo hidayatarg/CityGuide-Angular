@@ -23,9 +23,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_module/font-awesom/css/font-awesom.min.css",
+              "node_module/bootswatch/dist/minty/bootstrap.min.css",
+              "node_module/alertifyjs/build/css/alertify.min.css",
+              "node_module/alertifyjs/build/css/themes/bootstrap.min.css"
+
             ],
-            "scripts": []
+            "scripts": [
+              "node_module/alertifyjs/build/css/alertify.min.js"
+            ]
           },
           "configurations": {
             "production": {
