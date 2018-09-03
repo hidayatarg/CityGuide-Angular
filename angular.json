@@ -24,14 +24,14 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_module/font-awesom/css/font-awesom.min.css",
-              "node_module/bootswatch/dist/minty/bootstrap.min.css",
-              "node_module/alertifyjs/build/css/alertify.min.css",
-              "node_module/alertifyjs/build/css/themes/bootstrap.min.css"
+               "node_modules/font-awesome/css/font-awesome.min.css",
+               "node_modules/bootswatch/dist/minty/bootstrap.min.css",
+               "node_modules/alertifyjs/build/css/alertify.min.css",
+               "node_modules/alertifyjs/build/css/themes/bootstrap.min.css"
 
             ],
             "scripts": [
-              "node_module/alertifyjs/build/css/alertify.min.js"
+              "node_modules/alertifyjs/build/alertify.min.js"
             ]
           },
           "configurations": {
