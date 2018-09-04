@@ -1,3 +1,4 @@
+import { CityDetailComponent } from './city/city-detail/city-detail.component';
 
 import { Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,8 +14,9 @@ import { ValueComponent } from './value/value.component';
 import { NavComponent } from './nav/nav.component';
 import { CityComponent } from './city/city.component';
 
+
 @NgModule({
-  declarations: [AppComponent, ValueComponent, NavComponent, CityComponent],
+  declarations: [AppComponent, ValueComponent, NavComponent, CityComponent, CityDetailComponent],
   imports: [BrowserModule, HttpClientModule, 
   RouterModule.forRoot(appRoutes),
   ],
