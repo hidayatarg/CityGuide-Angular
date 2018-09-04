@@ -8,3 +8,8 @@ Packages to be installed
 
 #For the repeated data reading--services
 
+
+
+
+#ngx-Gallery
+#npm install rxjs-compact
