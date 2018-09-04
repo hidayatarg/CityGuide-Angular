@@ -13,12 +13,14 @@ import { AppComponent } from './app.component';
 import { ValueComponent } from './value/value.component';
 import { NavComponent } from './nav/nav.component';
 import { CityComponent } from './city/city.component';
-
+// for the gallery ngx
+import{NgxGalleryModule} from 'ngx-gallery';
 
 @NgModule({
   declarations: [AppComponent, ValueComponent, NavComponent, CityComponent, CityDetailComponent],
   imports: [BrowserModule, HttpClientModule, 
   RouterModule.forRoot(appRoutes),
+  NgxGalleryModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
