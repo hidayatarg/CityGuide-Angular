@@ -13,3 +13,6 @@ Packages to be installed
 
 #ngx-Gallery
 #npm install rxjs-compact
+
+
+RJXS error solved

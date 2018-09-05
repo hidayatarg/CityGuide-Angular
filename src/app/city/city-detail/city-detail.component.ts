@@ -1,67 +1,70 @@
-import { City } from './../../models/city';
-import { CityService } from './../../services/city.service';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { CityService } from "../../services/city.service";
+import { City } from "../../models/city";
+import { Photo } from "../../models/photo";
+
 import {
   NgxGalleryOptions,
   NgxGalleryImage,
   NgxGalleryAnimation
 } from "ngx-gallery";
-import { Photo } from '../../models/photo';
 
 @Component({
-  selector: 'app-city-detail',
-  templateUrl: './city-detail.component.html',
-  styleUrls: ['./city-detail.component.css'],
+  selector: "app-city-detail",
+  templateUrl: "./city-detail.component.html",
+  styleUrls: ["./city-detail.component.css"],
   providers: [CityService]
 })
 export class CityDetailComponent implements OnInit {
 
-  constructor(private activatedRoutes: ActivatedRoute, private citySerice: CityService) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private cityService: CityService
+  ) { }
 
   city: City;
-  photos:Photo[] = []
-
+  photos: Photo[] = []
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
-
   ngOnInit() {
-    this.activatedRoutes.params.subscribe(params => {
-      this.getCityById(params["cityId"])
+    this.activatedRoute.params.subscribe(params => {
+      this.getCityById(params["cityId"]);
     });
   }
 
   getCityById(cityId) {
-    this.citySerice.getCityById(cityId).subscribe(data => {
+    this.cityService.getCityById(cityId).subscribe(data => {
       this.city = data;
-      console.dir(data);
+      this.getPhotosByCity(cityId)
     });
   }
 
-  getPhotosByCity(cityId){
-      this.citySerice.getPhotosByCity(cityId).subscribe(data=>{
-        this.photos=data;
-        this.setGallery();
-      })
+  getPhotosByCity(cityId) {
+    this.cityService.getPhotosByCity(cityId).subscribe(data => {
+
+      this.photos = data;
+      this.setGallery();
+    })
   }
 
-  // For image formatting according to the gallery
-  getImages(){
-    const imageUrls=[];
-    for(let i=0;i<this.city.photos.length;i++){
+  getImages() {
+    const imageUrls = []
+    for (let i = 0; i < this.city.photos.length; i++) {
       imageUrls.push({
-        small:this.city.photos[i].url,
-        medium:this.city.photos[i].url,
-        big:this.city.photos[i].url
+        small: this.city.photos[i].url,
+        medium: this.city.photos[i].url,
+        big: this.city.photos[i].url
       })
     }
     return imageUrls;
   }
+
   setGallery() {
     this.galleryOptions = [
       {
-        width: '600px',
+        width: '100%',
         height: '400px',
         thumbnailsColumns: 4,
         imageAnimation: NgxGalleryAnimation.Slide
@@ -83,7 +86,6 @@ export class CityDetailComponent implements OnInit {
       }
     ];
 
-    this.galleryImages = this.getImages();
+    this.galleryImages = this.getImages()
   }
-
 }
