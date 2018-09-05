@@ -29,3 +29,5 @@ RJXS error solved
 npm install angular2-jwt
 
 #When ever in a page if we want to route the user to another page (component) we will use route in constructor
+
+#Register
