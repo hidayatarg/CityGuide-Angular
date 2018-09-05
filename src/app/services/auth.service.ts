@@ -65,6 +65,7 @@ export class AuthService {
 
   logOut() {
     localStorage.removeItem(this.TOKEN_KEY)
+    this.alertifyService.error("User LogOut")
   }
 
   // Status: Currently Logged In?
