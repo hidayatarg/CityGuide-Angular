@@ -18,17 +18,17 @@ export class CityService {
     //retun data of type City array
     return this.httpClient.get<City[]>(this.path + "cities");
   }
-  
-  getCityById(cityId):Observable<City>{
+
+  getCityById(cityId): Observable<City> {
     return this.httpClient.get<City>(this.path + "cities/detail/?id=" + cityId);
   }
 
-  getPhotosByCity(cityId):Observable<Photo[]>{
-    return this.httpClient.get<Photo[]>(this.path +"cities/photos/?CityId="+cityId)
+  getPhotosByCity(cityId): Observable<Photo[]> {
+    return this.httpClient.get<Photo[]>(this.path + "cities/photos/?CityId=" + cityId)
   }
 
-  add(city){
-    this.httpClient.post(this.path+'city/add',city).subscribe();
+  add(city) {
+    this.httpClient.post(this.path + 'cities/add', city).subscribe();
   }
 
 }
