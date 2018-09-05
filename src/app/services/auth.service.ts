@@ -73,8 +73,15 @@ export class AuthService {
     return tokenNotExpired(this.TOKEN_KEY);
   }
 
+  get token() {
+    return localStorage.getItem(this.TOKEN_KEY);
+  }
+
   getCurrentUserId(){
     // Jwt standard
-    return this.jwtHelper.decodeToken(localStorage.getItem(this.TOKEN_KEY)).nameid
+    return this.jwtHelper.decodeToken(this.token).nameid
   }
+
+  
+  
 }
