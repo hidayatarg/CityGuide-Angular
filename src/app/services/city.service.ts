@@ -1,15 +1,17 @@
+import { AlertifyService } from './alertify.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { City } from '../models/city';
 import { Photo } from '../models/photo';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CityService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private alertifyService: AlertifyService, private router:Router ) { }
 
   // Service Address comes from the WebApi
   path = "http://localhost:51788/api/"
@@ -28,7 +30,12 @@ export class CityService {
   }
 
   add(city) {
-    this.httpClient.post(this.path + 'cities/add', city).subscribe();
+    this.httpClient.post(this.path + 'cities/add', city).subscribe(data=>{
+       // Alertify Messag
+      this.alertifyService.success("Successfully added new city");
+      // Route to the added data
+      this.router.navigateByUrl('/cityDetail/'+data["id"]);
+    });
   }
 
 }

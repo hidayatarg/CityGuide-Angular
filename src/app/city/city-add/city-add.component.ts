@@ -13,7 +13,7 @@ export class CityAddComponent implements OnInit {
 
   constructor(private cityService: CityService,
               private formBuilder: FormBuilder,
-              private alertifyService: AlertifyService,
+             
   ) { }
 
   city: City;
@@ -47,8 +47,7 @@ export class CityAddComponent implements OnInit {
       // Add via Service
       this.cityService.add(this.city);
 
-      // Alertify Messag
-      this.alertifyService.success("Successfully added new city");
+     
 
     }
   }
