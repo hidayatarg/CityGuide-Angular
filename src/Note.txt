@@ -20,3 +20,7 @@ RJXS error solved
 
 
 #Reactive Forms
+
+#Alertify services
+
+#To redirect to that cityDetail we need to add router in constructor

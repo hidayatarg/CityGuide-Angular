@@ -21,10 +21,14 @@ import { NgxGalleryModule } from 'ngx-gallery';
 // Reactive Forms 
 import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 
+//alertify
+import { AlertifyService } from "./services/alertify.service";
+
+
 @NgModule({
   declarations: [AppComponent, ValueComponent, NavComponent, CityComponent, CityDetailComponent, CityAddComponent],
   imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes), NgxGalleryModule, FormsModule, ReactiveFormsModule],
-  providers: [],
+  providers: [AlertifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
