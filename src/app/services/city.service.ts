@@ -27,4 +27,8 @@ export class CityService {
     return this.httpClient.get<Photo[]>(this.path +"cities/photos/?CityId="+cityId)
   }
 
+  add(city){
+    this.httpClient.post(this.path+'city/add',city).subscribe();
+  }
+
 }

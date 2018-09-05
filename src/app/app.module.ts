@@ -1,4 +1,6 @@
+import { CityAddComponent } from './city/city-add/city-add.component';
 import { CityDetailComponent } from './city/city-detail/city-detail.component';
+
 
 import { Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,7 +19,7 @@ import { CityComponent } from './city/city.component';
 import { NgxGalleryModule } from 'ngx-gallery';
 
 @NgModule({
-  declarations: [AppComponent, ValueComponent, NavComponent, CityComponent, CityDetailComponent],
+  declarations: [AppComponent, ValueComponent, NavComponent, CityComponent, CityDetailComponent, CityAddComponent],
   imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes), NgxGalleryModule],
   providers: [],
   bootstrap: [AppComponent]
