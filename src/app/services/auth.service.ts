@@ -17,7 +17,7 @@ export class AuthService {
     private router: Router
   ) { }
 
-  path = "http://localhost:51788/api/auth";
+  path = "http://localhost:51788/api/auth/";
 
   // Need to reach token anytime
   userToken: any;
@@ -26,7 +26,7 @@ export class AuthService {
   // For angular2-Jwt
   jwtHelper: JwtHelper = new JwtHelper();
 
-  TOKEN_KEY="toke"
+  TOKEN_KEY = "token"
 
   // Take a loginUser of Type *(mode)LoginUser
   login(loginUser: LoginUser) {
@@ -38,10 +38,10 @@ export class AuthService {
     this.httpClient
       .post(this.path + 'login', loginUser, { headers: headers })
       .subscribe(data => {
-        this.saveToken(data['tokenString']);
+        this.saveToken(data);
         // Token during app
-        this.userToken = data['tokenString'];
-        this.decodedToken = this.jwtHelper.decodeToken(data["tokenString"]);
+        this.userToken = data;
+        this.decodedToken = this.jwtHelper.decodeToken(data.toString());
         //Alertify Message
         this.alertifyService.success("Sign in Successfully");
         this.router.navigateByUrl('/city');
@@ -52,7 +52,7 @@ export class AuthService {
   register(registerUser: RegisterUser) {
     let headers = new HttpHeaders();
     headers = headers.append("Content-Type", "application/json");
-    this.httpClient.post(this.path + 'register', registerUser, { headers:headers }).
+    this.httpClient.post(this.path + 'register', registerUser, { headers: headers }).
       subscribe(data => {
 
       });
@@ -63,12 +63,12 @@ export class AuthService {
     localStorage.setItem(this.TOKEN_KEY, token);
   }
 
-  logOut(){
+  logOut() {
     localStorage.removeItem(this.TOKEN_KEY)
   }
 
   // Status: Currently Logged In?
-  loggedIn(){
+  loggedIn() {
     // Token status 
     return tokenNotExpired(this.TOKEN_KEY);
   }
@@ -77,11 +77,11 @@ export class AuthService {
     return localStorage.getItem(this.TOKEN_KEY);
   }
 
-  getCurrentUserId(){
+  getCurrentUserId() {
     // Jwt standard
     return this.jwtHelper.decodeToken(this.token).nameid
   }
 
-  
-  
+
+
 }
