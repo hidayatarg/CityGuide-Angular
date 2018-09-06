@@ -1,3 +1,4 @@
+import { RegisterComponent } from './register/register.component';
 import { CityAddComponent } from './city/city-add/city-add.component';
 import { CityDetailComponent } from './city/city-detail/city-detail.component';
 
@@ -26,7 +27,7 @@ import { AlertifyService } from "./services/alertify.service";
 
 
 @NgModule({
-  declarations: [AppComponent, ValueComponent, NavComponent, CityComponent, CityDetailComponent, CityAddComponent],
+  declarations: [AppComponent, ValueComponent, NavComponent, CityComponent, CityDetailComponent, CityAddComponent, RegisterComponent],
   imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes), NgxGalleryModule, FormsModule, ReactiveFormsModule],
   providers: [AlertifyService],
   bootstrap: [AppComponent]

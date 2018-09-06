@@ -14,6 +14,8 @@ export class RegisterComponent implements OnInit {
   // Hold the register user
   registerUser:any = {};
   ngOnInit() {
+    // When app start create the form
+    this.createRegisterForm();
   }
 
   createRegisterForm(){
@@ -21,9 +23,9 @@ export class RegisterComponent implements OnInit {
       {
         // Fields in Register
         userName:["",Validators.required],
-        password:["",Validators.required,
+        password:["",[Validators.required,
         Validators.minLength(4),
-        Validators.maxLength(18)],
+        Validators.maxLength(18)]],
         confirmPassword:["",Validators.required]
       },
       // Custom validator

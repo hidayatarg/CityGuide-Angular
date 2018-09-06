@@ -1,3 +1,4 @@
+import { RegisterComponent } from './register/register.component';
 import { Routes } from '@angular/router';
 import { CityComponent } from './city/city.component';
 import { ValueComponent } from './value/value.component';
@@ -9,6 +10,7 @@ export const appRoutes: Routes =[
     {path:"value", component:ValueComponent},
     {path:"cityDetail/:cityId", component:CityDetailComponent},
     {path:"cityadd", component:CityAddComponent},
+    {path:"register", component:RegisterComponent},
     
         // anything rather than upper ones
         // Default value

@@ -17,18 +17,19 @@
         <a class="nav-link" routerLink="cityadd" routerLinkActive="active">Add City</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" routerLink="register" routerLinkActive="active">Register</a>
       </li>
     </ul>
 
     <!-- show if person is not authenticated -->
 
     <form *ngIf="!isAuthenticated" #loginForm="ngForm" (ngSubmit)="login()" class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" name="userName" [(ngModel)]="loginUser.userName" required type="text" placeholder="User Name">
+      <input class="form-control mr-sm-2" name="userName" [(ngModel)]="loginUser.userName" required type="text"
+        placeholder="User Name">
       <input class="form-control mr-sm-2" name="password" [(ngModel)]="loginUser.password" required type="password"
         placeholder="Password">
       <button class="btn btn-secondary my-2 my-sm-0" [disabled]="!loginForm.valid" type="submit">Login</button>
     </form>
-<button *ngIf="isAuthenticated" class="btn btn-secondary my-2 my-sm-0" (click)="logOut()" type="submit">Log Out</button>
-   </div>
+    <button *ngIf="isAuthenticated" class="btn btn-secondary my-2 my-sm-0" (click)="logOut()" type="submit">Log Out</button>
+  </div>
 </nav>

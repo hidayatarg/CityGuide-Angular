@@ -1,3 +1,48 @@
-<p>
-  register works!
-</p>
+<main role="main">
+  <div class="container">
+    <div class="row">
+      <form [formGroup]="registerForm" (ngSubmit)="register()" class="form-register">
+        <h2 class="mt-5">Register</h2>
+        <div class="form-group">
+          <!-- formControlName will check according to the cityAdd.ts -->
+          <input type="text" id="userName" name="userName" formControlName="userName" class="form-control" placeholder="Username"
+            autofocus>
+          <span class="help-block" *ngIf="registerForm.get('userName').hasError('required') && registerForm.get('userName').touched">
+            Username is required
+          </span>
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="password" name="password" formControlName="password" class="form-control"
+            placeholder="Password">
+          <span class="help-block" *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched">
+            Password is required
+          </span>
+          <span class="help-block" *ngIf="registerForm.get('password').hasError('minlength') && registerForm.get('password').touched">
+            Password must be at least 4 characters
+          </span>
+          <span class="help-block" *ngIf="registerForm.get('password').hasError('maxlength') && registerForm.get('password').touched">
+            Password cannot exceed 8 characters
+          </span>
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword" class="form-control"
+            placeholder="Confirm Password">
+          <span class="help-block" *ngIf="registerForm.get('confirmPassword').hasError('required') && registerForm.get('confirmPassword').touched">
+            Password must match
+          </span>
+          <span class="help-block" *ngIf="registerForm.get('confirmPassword').touched 
+            && registerForm.hasError('mismatch')">
+            Password is not matching
+          </span>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" [disabled]="!registerForm.valid" type="submit">Register</button>
+        <!-- check the data is valid -->
+        <h6>{{registerForm.value|json}}</h6>
+        <h6>{{registerForm.status|json}}</h6>
+      </form>
+    </div>
+  </div>
+</main>
