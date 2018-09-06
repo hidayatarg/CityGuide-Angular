@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { AlertifyService } from './../../services/alertify.service';
 import { City } from './../../models/city';
 import { CityService } from './../../services/city.service';
@@ -13,6 +14,7 @@ export class CityAddComponent implements OnInit {
 
   constructor(private cityService: CityService,
               private formBuilder: FormBuilder,
+              private authService: AuthService
              
   ) { }
 
@@ -43,7 +45,7 @@ export class CityAddComponent implements OnInit {
       // Read the cityAddForm values add to the object and object is added to the city
       this.city = Object.assign({}, this.cityAddForm.value);
       // TODO: JWT
-      this.city.userId = 1;
+      this.city.userId = this.authService.getCurrentUserId();
       // Add via Service
       this.cityService.add(this.city);
 
