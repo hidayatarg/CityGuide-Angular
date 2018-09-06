@@ -34,3 +34,6 @@ npm install angular2-jwt
 
 #First we add in route.ts
 #Second we add in the navbar
+
+npm install ngx-editor
+npm install ngx-bootstrap
