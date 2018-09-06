@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
   passwordMatchValidator(g:FormGroup){
     // Two password match or not
     return g.get('password').value===
-    g.get('confirmPassword').value?null:{misMatch:true}
+      g.get('confirmPassword').value ? null : { mismatch:true}
   }
 
   register(){
