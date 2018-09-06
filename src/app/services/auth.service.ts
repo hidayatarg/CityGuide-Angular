@@ -38,15 +38,24 @@ export class AuthService {
     this.httpClient
       .post(this.path + 'login', loginUser, { headers: headers })
       .subscribe(data => {
-        this.saveToken(data);
+       
+         this.saveToken(data);
         // Token during app
-        this.userToken = data;
-        this.decodedToken = this.jwtHelper.decodeToken(data.toString());
-        //Alertify Message
-        this.alertifyService.success("Sign in Successfully");
-        this.router.navigateByUrl('/city');
-
+         this.userToken = data;
+         this.decodedToken = this.jwtHelper.decodeToken(data.toString());
+       //  Alertify Message
+         this.alertifyService.success("Sign in Successfully");
+         this.router.navigateByUrl('/city');
+        
+      }, (error) => {
+        // console.dir(error)
+        // console.log(error.status)       
+        if (error.status=401){
+          this.alertifyService.error("Unauthorized Credintials. Provide the Correct Credintials.");
+        }      
       });
+
+
   }
 
   register(registerUser: RegisterUser) {
