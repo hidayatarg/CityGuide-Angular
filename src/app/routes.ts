@@ -8,6 +8,7 @@ import { CityAddComponent } from './city/city-add/city-add.component';
 export const appRoutes: Routes =[
     {path:"city", component:CityComponent},
     {path:"value", component:ValueComponent},
+    // will send the cityId via params
     {path:"cityDetail/:cityId", component:CityDetailComponent},
     {path:"cityadd", component:CityAddComponent},
     {path:"register", component:RegisterComponent},

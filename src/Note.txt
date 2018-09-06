@@ -37,3 +37,11 @@ npm install angular2-jwt
 
 npm install ngx-editor
 npm install ngx-bootstrap
+npm install ng2-file-upload --save
+
+
+Note:
+: means type of
+baseUrl: "http://localhost:51788/api/";
+= means equal to 
+baseUrl= "http://localhost:51788/api/";

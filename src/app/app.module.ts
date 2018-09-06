@@ -1,7 +1,7 @@
+import { PhotoComponent } from './photo/photo.component';
 import { RegisterComponent } from './register/register.component';
 import { CityAddComponent } from './city/city-add/city-add.component';
 import { CityDetailComponent } from './city/city-detail/city-detail.component';
-
 
 import { Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
@@ -28,6 +28,9 @@ import { AlertifyService } from './services/alertify.service';
 // Ngx-editor
 import { NgxEditorModule } from 'ngx-editor';
 
+// File Upload
+import { FileUploadModule } from "ng2-file-upload";
+
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import { NgxEditorModule } from 'ngx-editor';
     CityComponent,
     CityDetailComponent,
     CityAddComponent,
-    RegisterComponent
+    RegisterComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,8 @@ import { NgxEditorModule } from 'ngx-editor';
     NgxGalleryModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxEditorModule
+    NgxEditorModule,
+    FileUploadModule,
   ],
   providers: [AlertifyService],
   bootstrap: [AppComponent]
